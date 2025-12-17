@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
       {/* Main Content */}
       <div className="container mx-auto relative z-10 flex flex-col justify-between h-full flex-grow px-4 md:px-12">
         {/* Center Section */}
-        <div className="flex flex-col items-center justify-center flex-grow py-10">
+        <div className="flex flex-col items-center justify-center flex-grow py-4">
           <div ref={titleRef} className="text-center">
             <div className="font-mono text-xs md:text-base text-[#BDD0A0] uppercase tracking-[0.5em] mb-4">
               You've reached the bottom

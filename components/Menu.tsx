@@ -98,7 +98,7 @@ const Menu: React.FC = () => {
                <span className="bg-[#004632] text-[#FEF8DD] px-2 py-1 font-mono text-[10px] md:text-xs font-bold uppercase">Vol. 2025</span>
                <span className="font-mono text-xs md:text-sm font-bold text-[#004632] uppercase tracking-widest">/// Curated List</span>
             </div>
-            <h2 className="font-heading text-6xl md:text-9xl text-[#004632] leading-[0.85] tracking-tighter">
+            <h2 className="font-heading text-5xl mr-[60px] md:text-9xl text-[#004632] leading-[0.85] tracking-tighter">
               CURRENT<br/>ROTATION
             </h2>
           </div>

@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
 
   return (
     // OUTER WRAPPER: Handles Positioning (Centering). NO TRANSITION here.
-    <div className="fixed top-6 left-1/2 z-50 -translate-x-1/2 w-max max-w-[calc(100%-24px)] sm:max-w-none">
+    <div className="fixed top-6 left-1/2 z-50 -translate-x-1/2 w-max max-w-[calc(100%-16px)] sm:max-w-none">
       
       {/* INNER WRAPPER: Handles Hide/Show Animation. */}
       <div 
