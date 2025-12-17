@@ -1,0 +1,204 @@
+import React from 'react';
+import gsap from 'gsap';
+import { ScanLine, Binary, ArrowUpRight, ShieldCheck } from 'lucide-react';
+
+const MenuBento: React.FC = () => {
+
+  // --- Animation Handlers ---
+  const handleEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    // 1. Image Color & Zoom
+    const img = e.currentTarget.querySelector('img');
+    if (img) {
+        gsap.to(img, { filter: 'grayscale(0%)', scale: 1.05, duration: 0.5, ease: 'power2.out' });
+    }
+    
+    // 2. Reveal Details Panel
+    const details = e.currentTarget.querySelector('.details-panel');
+    if (details) {
+        gsap.to(details, { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' });
+    }
+
+    // 3. Spin the Stamp
+    const stamp = e.currentTarget.querySelector('.stamp-spin');
+    if (stamp) {
+        gsap.to(stamp, { rotation: 360, duration: 1, ease: 'elastic.out(1, 0.5)' });
+    }
+  };
+
+  const handleLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const img = e.currentTarget.querySelector('img');
+    if (img) {
+        gsap.to(img, { filter: 'grayscale(100%)', scale: 1, duration: 0.5, ease: 'power2.out' });
+    }
+
+    const details = e.currentTarget.querySelector('.details-panel');
+    if (details) {
+        gsap.to(details, { y: 20, opacity: 0, duration: 0.4, ease: 'power2.out' });
+    }
+
+    const stamp = e.currentTarget.querySelector('.stamp-spin');
+    if (stamp) {
+        gsap.to(stamp, { rotation: 0, duration: 0.5 });
+    }
+  };
+
+  return (
+    <section className="w-full bg-[#FEF8DD] py-20 md:py-32">
+      <div className="container mx-auto px-4 md:px-12">
+        
+        {/* Section Header */}
+        <div className="flex justify-between items-end mb-8 md:mb-12 border-b-2 border-[#004632] pb-4">
+           <div>
+               <div className="font-mono text-xs text-[#004632] mb-2 uppercase tracking-widest">/// Select Your Vibe</div>
+               <h2 className="font-heading text-6xl md:text-8xl text-[#004632] leading-none">
+                  ARCHIVE<span className="text-[#BDD0A0]">.01</span>
+               </h2>
+           </div>
+           <div className="hidden md:block font-mono text-xs text-[#004632] text-right">
+              <p>FIG. 2025-A</p>
+              <p>STATUS: ACTIVE</p>
+           </div>
+        </div>
+
+        {/* --- THE BENTO GRID --- */}
+        {/* Fixed Borders: Removed border-l-2 from container to prevent overflow line */}
+        <div className="grid grid-cols-1 md:grid-cols-12 auto-rows-[450px] md:auto-rows-[500px] border-t-2 border-[#004632]">
+            
+            {/* ITEM 01: DIRTY MATCHA (Span 6) */}
+            <div 
+               className="group relative col-span-1 md:col-span-6 border-l-2 border-r-2 border-b-2 border-[#004632] overflow-hidden bg-white"
+               onMouseEnter={handleEnter}
+               onMouseLeave={handleLeave}
+            >
+               {/* Technical Header */}
+               <div className="absolute top-0 left-0 w-full flex justify-between items-center p-4 z-20 mix-blend-multiply pointer-events-none">
+                  <span className="font-mono text-[10px] uppercase bg-[#004632] text-[#FEF8DD] px-2 py-1">No. 01</span>
+                  <ArrowUpRight className="text-[#004632] opacity-0 group-hover:opacity-100 transition-opacity" size={20} />
+               </div>
+               
+               {/* Image */}
+               <div className="w-full h-full relative">
+                  <img 
+                     src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=800&auto=format&fit=crop" 
+                     alt="Dirty Matcha" 
+                     className="w-full h-full object-cover filter grayscale transition-all duration-700"
+                  />
+               </div>
+
+               {/* Hover Details Panel */}
+               <div className="details-panel absolute bottom-0 left-0 w-full bg-[#FEF8DD] border-t-2 border-[#004632] p-6 translate-y-full opacity-0 z-30 flex justify-between items-end">
+                  <div>
+                     <h3 className="font-heading text-4xl text-[#004632] leading-none">DIRTY MATCHA</h3>
+                     <p className="font-mono text-xs text-[#004632] mt-1">THE OG CLASSIC • ESPRESSO x OAT</p>
+                  </div>
+                  <div className="text-right">
+                     <span className="font-heading text-4xl text-[#004632]">¥850</span>
+                  </div>
+               </div>
+            </div>
+
+            {/* ITEM 02: YUZU (Span 3 - Vertical) */}
+            <div 
+               className="group relative col-span-1 md:col-span-3 border-l-2 md:border-l-0 border-r-2 border-b-2 border-[#004632] overflow-hidden bg-[#F2F2F2]"
+               onMouseEnter={handleEnter}
+               onMouseLeave={handleLeave}
+            >
+               <div className="absolute top-4 right-4 z-20">
+                  <ScanLine size={20} className="text-[#004632] group-hover:animate-pulse" />
+               </div>
+
+               <div className="w-full h-full relative flex items-center justify-center p-8">
+                   <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#004632 1px, transparent 1px)', backgroundSize: '12px 12px' }}></div>
+                   
+                   <img 
+                     src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop" 
+                     alt="Yuzu" 
+                     className="w-full h-[70%] object-cover filter grayscale rounded-full border-2 border-[#004632] group-hover:scale-105 transition-transform duration-500"
+                  />
+                  
+                  {/* Center Text */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+                      <h3 className="font-heading text-6xl text-[#FEF8DD] mix-blend-difference tracking-tighter">YUZU</h3>
+                  </div>
+               </div>
+
+               <div className="details-panel absolute bottom-4 left-4 right-4 bg-[#004632] text-[#FEF8DD] p-3 text-center translate-y-10 opacity-0 z-30">
+                  <span className="font-mono text-xs font-bold uppercase">Sparkling Citrus • ¥750</span>
+               </div>
+            </div>
+
+            {/* ITEM 03: INFO BLOCK (Span 3 - Text Only) */}
+            <div className="group relative col-span-1 md:col-span-3 border-l-2 md:border-l-0 border-r-2 border-b-2 border-[#004632] bg-[#FEF8DD] p-6 flex flex-col justify-between">
+               
+               <div className="font-mono text-[10px] text-[#004632] flex justify-between uppercase border-b border-[#004632] pb-2">
+                  <span>Data_Sheet.03</span>
+                  <Binary size={12} />
+               </div>
+
+               <div className="flex-grow flex flex-col justify-center">
+                  <div className="stamp-spin w-20 h-20 border-2 border-[#004632] rounded-full flex items-center justify-center mb-6 mx-auto">
+                      <ShieldCheck size={32} className="text-[#004632]" />
+                  </div>
+                  
+                  <ul className="font-mono text-xs text-[#004632] space-y-3">
+                     <li className="flex justify-between border-b border-[#004632]/20 pb-1">
+                        <span>ORIGIN</span>
+                        <span className="font-bold">UJI, JAPAN</span>
+                     </li>
+                     <li className="flex justify-between border-b border-[#004632]/20 pb-1">
+                        <span>NOTES</span>
+                        <span className="font-bold">UMAMI / NUTTY</span>
+                     </li>
+                     <li className="flex justify-between border-b border-[#004632]/20 pb-1">
+                        <span>GRADE</span>
+                        <span className="font-bold">PREMIUM</span>
+                     </li>
+                  </ul>
+               </div>
+
+               <div className="w-full py-3 bg-[#004632] mt-4 flex items-center justify-center overflow-hidden relative group-hover:bg-[#BDD0A0] transition-colors cursor-pointer">
+                  <div className="font-heading text-[#FEF8DD] group-hover:text-[#004632] text-lg uppercase">Full Menu ↗</div>
+               </div>
+            </div>
+
+            {/* ITEM 04: HOJICHA (Span 12 - Wide Banner) */}
+            {/* Added border-l-2 and h-full to fix alignment */}
+            <div 
+               className="group relative col-span-1 md:col-span-12 h-full min-h-[300px] border-l-2 border-r-2 border-b-2 border-[#004632] overflow-hidden bg-black"
+               onMouseEnter={handleEnter}
+               onMouseLeave={handleLeave}
+            >
+               <div className="absolute inset-0 opacity-60">
+                  <img 
+                     src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?q=80&w=1200&auto=format&fit=crop" 
+                     alt="Hojicha" 
+                     className="w-full h-full object-cover filter grayscale"
+                  />
+               </div>
+               
+               <div className="absolute inset-0 flex items-center justify-between px-6 md:px-16 z-10">
+                  <div>
+                      <div className="font-mono text-[#BDD0A0] text-xs mb-2 opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300">
+                          /// LIMITED EDITION
+                      </div>
+                      <h2 className="font-heading text-6xl md:text-9xl text-[#FEF8DD] mix-blend-difference group-hover:tracking-widest transition-all duration-700">
+                         HOJICHA
+                      </h2>
+                  </div>
+                  
+                  <div className="hidden md:block">
+                      <div className="stamp-spin w-24 h-24 bg-[#BDD0A0] rounded-full flex items-center justify-center text-[#004632] font-heading text-xl border-2 border-[#004632]">
+                          ROASTED
+                      </div>
+                  </div>
+               </div>
+            </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default MenuBento;
