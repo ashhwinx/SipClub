@@ -23,7 +23,7 @@ const WORKSHOPS = [
     date: '24 DEC',
     title: 'MATCHA CEREMONY',
     category: 'CULTURE',
-    image: 'https://images.unsplash.com/photo-1536637706725-c96e8837df7d?q=80&w=1200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=800&auto=format&fit=crop',
     desc: 'A deep dive into Uji tea culture. Learn traditional whisking techniques, water temperature control, and ceremonial etiquette.',
     price: '¥4500',
     location: 'TATAMI ROOM',

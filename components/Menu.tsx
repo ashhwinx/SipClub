@@ -39,7 +39,7 @@ const drinks = [
     description: 'Fresh strawberry puree, hokkaido milk, topped with thick matcha cold foam.',
     vibe: 100,
     caffeine: 'LOW',
-    image: 'https://images.unsplash.com/photo-1579389083175-247ef70153ba?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1708762028605-ad25725e87c3?q=80&w=800&auto=format&fit=crop',
     bg: 'bg-[#FEF8DD]', 
     text: 'text-[#004632]',
     accent: '#BDD0A0',
@@ -53,12 +53,14 @@ const drinks = [
     description: 'Roasted black sesame paste, charcoal bamboo, and steamed soy milk.',
     vibe: 95,
     caffeine: 'NONE',
-    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop',
+    image: 'https://plus.unsplash.com/premium_photo-1688385990713-a4f5574d6c9b?q=80&w=800&auto=format&fit=crop',
     bg: 'bg-[#004632]', 
     text: 'text-[#FEF8DD]',
     accent: '#BDD0A0',
     stamp: 'LIMITED'
   },
+
+  
   {
     id: '05',
     name: 'BLUE PEA FOG',

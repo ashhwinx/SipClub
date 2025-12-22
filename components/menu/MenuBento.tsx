@@ -108,35 +108,35 @@ const MenuBento: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 auto-rows-[450px] md:auto-rows-[500px] border-t-2 border-[#004632]">
             
             {/* ITEM 01: DIRTY MATCHA */}
-            <div 
-               className="group relative col-span-1 md:col-span-6 border-l-2 border-r-2 border-b-2 border-[#004632] overflow-hidden bg-white cursor-pointer transform-gpu"
-               onMouseEnter={handleEnter}
-               onMouseLeave={handleLeave}
-            >
-               <div className="absolute top-0 left-0 w-full flex justify-between items-center p-4 z-20 pointer-events-none">
-                  <span className="font-mono text-[10px] uppercase bg-[#004632] text-[#FEF8DD] px-2 py-1">No. 01</span>
-                  <ArrowUpRight className="text-[#004632] opacity-0 group-hover:opacity-100 transition-opacity" size={20} />
-               </div>
-               
-               <div className="w-full h-full relative overflow-hidden">
-                  <img 
-                      src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=800&auto=format&fit=crop" 
-                      alt="Dirty Matcha" 
-                      // Removed 'filter grayscale' here
-                      className="w-full h-full object-cover will-change-transform transform-gpu"
-                  />
-               </div>
+            <div
+  className="group relative col-span-1 md:col-span-6 border-l-2 border-r-2 border-b-2 border-[#004632] overflow-hidden bg-white cursor-pointer transform-gpu"
+  onMouseEnter={handleEnter}
+  onMouseLeave={handleLeave}
+>
+  <div className="absolute top-0 left-0 w-full flex justify-between items-center p-4 z-20 pointer-events-none">
+    <ArrowUpRight className="text-[#004632] opacity-0 group-hover:opacity-100 transition-opacity" size={20} />
+  </div>
 
-               <div className="details-panel absolute bottom-0 left-0 w-full bg-[#FEF8DD] border-t-2 border-[#004632] p-6 translate-y-full opacity-0 z-30 flex justify-between items-end will-change-transform">
-                  <div>
-                      <h3 className="font-heading text-4xl text-[#004632] leading-none">DIRTY MATCHA</h3>
-                      <p className="font-mono text-xs text-[#004632] mt-1">THE OG CLASSIC • ESPRESSO x OAT</p>
-                  </div>
-                  <div className="text-right">
-                      <span className="font-heading text-4xl text-[#004632]">¥850</span>
-                  </div>
-               </div>
-            </div>
+  <div className="w-full h-full relative overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?q=80&w=800&auto=format&fit=crop"
+      alt="Matcha Latte"
+      className="w-full h-full object-cover will-change-transform transform-gpu"
+    />
+  </div>
+
+  <div className="details-panel absolute bottom-0 left-0 w-full bg-[#FEF8DD] border-t-2 border-[#004632] p-6 translate-y-full opacity-0 z-30 flex justify-between items-end will-change-transform">
+    <div>
+      <h3 className="font-heading text-4xl text-[#004632] leading-none">MATCHA LATTE</h3>
+      <p className="font-mono text-xs text-[#004632] mt-1">JAPANESE STYLE • SILKY & SMOOTH</p>
+    </div>
+    <div className="text-right">
+      <span className="font-heading text-4xl text-[#004632]">¥900</span>
+    </div>
+  </div>
+</div>
+
+
 
             {/* ITEM 02: YUZU */}
             <div 

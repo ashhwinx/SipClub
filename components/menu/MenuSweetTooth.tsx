@@ -96,7 +96,7 @@ const MenuSweetTooth: React.FC = () => {
                <div className="w-full h-[500px] md:h-[600px] bg-white p-4 pb-16 shadow-[8px_8px_0px_#004632] border-2 border-[#004632] rotate-1 will-change-transform transform-gpu">
                   <div className="w-full h-full overflow-hidden border-2 border-[#004632]">
                      <img 
-                        src="https://images.unsplash.com/photo-1559563362-c667ba5f5480?q=80&w=1200&auto=format&fit=crop"
+                        src="https://images.unsplash.com/photo-1638519651608-412009302a02?q=80&w=800&auto=format&fit=crop                        "
                         alt="Matcha Cheesecake"
                         className="w-full h-full object-cover will-change-transform"
                      />

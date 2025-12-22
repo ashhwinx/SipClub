@@ -14,10 +14,10 @@ const reviews = [
 ];
 
 const images = [
-  "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1512413914633-b5043f4041ea?q=80&w=600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=800&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop",
 ];
 
 const VibeCheck: React.FC = () => {
@@ -109,10 +109,7 @@ const VibeCheck: React.FC = () => {
                    
                    {/* Play Button Overlay Hata Diya Gaya Hai */}
                    
-                   {/* Image Tag */}
-                   <div className="absolute bottom-4 left-4 bg-[#FEF8DD] text-[#004632] px-3 py-1 text-xs font-bold uppercase border border-[#004632] z-20">
-                      Cam_0{i+1}
-                   </div>
+                   
                 </div>
               ))}
             </div>
@@ -152,10 +149,7 @@ const VibeCheck: React.FC = () => {
                          <div className="flex text-[#004632] gap-1">
                             {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
                          </div>
-                         <div className="group flex items-center gap-2 cursor-pointer">
-                            <Heart size={18} className="text-[#004632] group-hover:fill-red-500 group-hover:text-red-500 transition-colors" />
-                            <span className="text-xs font-bold text-[#004632]">Like</span>
-                         </div>
+                         
                       </div>
 
                   </div>
