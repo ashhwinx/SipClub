@@ -41,8 +41,8 @@ const Hero: React.FC = () => {
         });
       }
 
-      // --- 3. UPDATED SMOOTH ENTRANCE ANIMATION ---
-      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } }); // Smoother easing
+      // --- 3. ENTRANCE ANIMATION (ONLY NON-TEXT ELEMENTS) ---
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
       // Kanji Fade (Subtle)
       if (kanjiRef.current) {
@@ -53,30 +53,7 @@ const Hero: React.FC = () => {
         );
       }
 
-      // Text: Ultra Smooth Blur Reveal
-      const textRefs = [textLine1Ref.current, textLine2Ref.current];
-      // Check if refs exist before animating
-      if (textLine1Ref.current && textLine2Ref.current) {
-          tl.fromTo(textRefs, 
-            {
-                y: 80,               // Slide up from lower
-                opacity: 0, 
-                filter: 'blur(12px)', // Slightly reduced blur for performance
-                scale: 1.15,          // Slight zoom out effect
-            },
-            {
-                y: 0,
-                opacity: 1,
-                filter: 'blur(0px)',
-                scale: 1,
-                duration: 1.8,        // Longer duration for elegance
-                stagger: 0.15,        // Delay between lines
-            },
-            0.2 // Start time
-          );
-      }
-
-      // Image Pop (Safety Check included)
+      // Image Pop
       if (imageRef.current) {
         tl.from(imageRef.current, {
             scale: 0,
@@ -99,15 +76,15 @@ const Hero: React.FC = () => {
         });
       }
 
-      // --- 4. SMOOTHER SCROLL INTERACTIONS ---
+      // --- 4. SCROLL INTERACTIONS FOR TEXT (ONLY MOVEMENT, NO ENTRANCE) ---
       if (textLine1Ref.current) {
         gsap.to(textLine1Ref.current, {
-            xPercent: -15, // Increased movement slightly
+            xPercent: -15, 
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: 'top top',
                 end: 'bottom top',
-                scrub: 1.5, // Higher value = Smoother lag effect
+                scrub: 1.5, 
             },
         });
       }
@@ -180,7 +157,7 @@ const Hero: React.FC = () => {
       {/* Main Content */}
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center w-full">
         
-        {/* Text Line 1 */}
+        {/* Text Line 1 - Now Static on Load */}
         <div className="relative">
           <h1
             ref={textLine1Ref}
@@ -191,7 +168,7 @@ const Hero: React.FC = () => {
           </h1>
         </div>
 
-        {/* Text Line 2 */}
+        {/* Text Line 2 - Now Static on Load */}
         <div className="relative">
           <h1
             ref={textLine2Ref}

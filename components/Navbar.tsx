@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  // --- SCROLL LOGIC (Kept as requested) ---
+  // --- SCROLL LOGIC ---
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -29,13 +29,13 @@ const Navbar: React.FC = () => {
   }, [lastScrollY]);
 
   return (
-    // OUTER WRAPPER: Handles Positioning (Centering). NO TRANSITION here.
+    // OUTER WRAPPER: Handles Positioning
     <div className="fixed top-6 left-1/2 z-50 -translate-x-1/2 w-max max-w-[calc(100%-16px)] sm:max-w-none">
       
-      {/* INNER WRAPPER: Handles Hide/Show Animation. */}
+      {/* INNER WRAPPER: Scroll based Hide/Show Logic */}
       <div 
-        className={`transition-transform duration-500 ease-in-out 
-          ${isVisible ? 'translate-y-0' : '-translate-y-[200%]'}`}
+        className={`transition-all duration-500 ease-in-out 
+          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10 pointer-events-none'}`}
       >
         <div className="flex items-center gap-2 rounded-full border-2 border-[#004632] bg-[#FEF8DD] p-2 pr-4 sm:pr-6 shadow-[0px_8px_20px_-5px_rgba(0,70,50,0.2)]">
           

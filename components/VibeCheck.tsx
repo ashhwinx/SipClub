@@ -1,7 +1,7 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Star, MessageCircle, Heart, Zap, Play } from 'lucide-react';
+import { Star, MessageCircle, Heart, Zap } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,21 +52,21 @@ const VibeCheck: React.FC = () => {
         element.addEventListener('mouseenter', () => tl.pause());
         element.addEventListener('mouseleave', () => tl.play());
 
-        // Scroll Velocity Effect
+        // Scroll Velocity Effect (Speeds up when you scroll)
         ScrollTrigger.create({
           trigger: sectionRef.current,
           start: "top bottom",
           end: "bottom top",
           onUpdate: (self) => {
             const velocity = self.getVelocity();
-            const timeScale = 1 + Math.abs(velocity / 500); // Speed up on scroll
+            const timeScale = 1 + Math.abs(velocity / 500);
             gsap.to(tl, { timeScale: timeScale, duration: 0.2 });
             gsap.to(tl, { timeScale: 1, duration: 0.5, delay: 0.2, overwrite: 'auto' });
           }
         });
       };
 
-      createMarquee(row1Ref.current, 'left', 40);  // Slower, smoother
+      createMarquee(row1Ref.current, 'left', 40); 
       createMarquee(row2Ref.current, 'right', 45);
 
     }, sectionRef);
@@ -77,11 +77,11 @@ const VibeCheck: React.FC = () => {
     <section ref={sectionRef} className="relative w-full bg-[#FEF8DD] py-32 overflow-hidden flex flex-col justify-center gap-16">
       
       {/* --- BACKGROUND DECOR --- */}
-      <div className="absolute top-20 left-10 animate-spin-slow opacity-20 pointer-events-none">
-         <Star size={80} className="text-[#004632]" />
+      <div className="absolute top-20 left-10 opacity-20 pointer-events-none">
+         <Star size={80} className="text-[#004632] animate-spin-slow" />
       </div>
-      <div className="absolute bottom-20 right-10 animate-bounce opacity-20 pointer-events-none">
-         <Zap size={80} className="text-[#BDD0A0]" fill="currentColor" />
+      <div className="absolute bottom-20 right-10 opacity-20 pointer-events-none">
+         <Zap size={80} className="text-[#BDD0A0] fill-current animate-bounce" />
       </div>
 
       {/* --- HEADER --- */}
@@ -100,18 +100,17 @@ const VibeCheck: React.FC = () => {
             <div className="flex">
               {images.map((src, i) => (
                 <div key={i} className="group relative w-[300px] h-[300px] md:w-[450px] md:h-[350px] flex-shrink-0 border-r-2 border-[#004632] overflow-hidden">
-                   {/* Image */}
-                   <img src={src} alt="Vibe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                   {/* Image - Hover par sirf scale hoga ab */}
+                   <img 
+                    src={src} 
+                    alt="Vibe" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                   />
                    
-                   {/* Hover Overlay */}
-                   <div className="absolute inset-0 bg-[#004632]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="bg-[#FEF8DD] p-4 rounded-full">
-                         <Play fill="currentColor" className="text-[#004632]" />
-                      </div>
-                   </div>
+                   {/* Play Button Overlay Hata Diya Gaya Hai */}
                    
-                   {/* Tag */}
-                   <div className="absolute bottom-4 left-4 bg-[#FEF8DD] text-[#004632] px-3 py-1 text-xs font-bold uppercase border border-[#004632]">
+                   {/* Image Tag */}
+                   <div className="absolute bottom-4 left-4 bg-[#FEF8DD] text-[#004632] px-3 py-1 text-xs font-bold uppercase border border-[#004632] z-20">
                       Cam_0{i+1}
                    </div>
                 </div>
@@ -126,38 +125,38 @@ const VibeCheck: React.FC = () => {
             <div className="flex gap-8">
                {reviews.map((review) => (
                   <div key={review.id} className="relative w-[350px] md:w-[500px] flex-shrink-0 bg-white border-2 border-[#004632] p-8 shadow-[8px_8px_0px_#BDD0A0] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all rounded-xl">
-                     
-                     {/* Card Header */}
-                     <div className="flex justify-between items-center mb-6 border-b border-dashed border-[#004632]/30 pb-4">
-                        <div className="flex items-center gap-3">
-                           <div className="w-10 h-10 bg-[#004632] rounded-full flex items-center justify-center text-[#FEF8DD]">
-                              <MessageCircle size={18} />
-                           </div>
-                           <div>
-                              <div className="font-bold text-[#004632] text-sm md:text-base">{review.user}</div>
-                              <div className="text-[10px] uppercase tracking-wider text-[#004632]/60">Verified Sipper</div>
-                           </div>
-                        </div>
-                        <div className="bg-[#BDD0A0] text-[#004632] px-3 py-1 rounded-full text-xs font-bold border border-[#004632]">
-                           {review.tag}
-                        </div>
-                     </div>
-                     
-                     {/* Review Text */}
-                     <p className="font-heading text-2xl md:text-3xl text-[#004632] leading-tight mb-6">
+                      
+                      {/* Card Header */}
+                      <div className="flex justify-between items-center mb-6 border-b border-dashed border-[#004632]/30 pb-4">
+                         <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-[#004632] rounded-full flex items-center justify-center text-[#FEF8DD]">
+                               <MessageCircle size={18} />
+                            </div>
+                            <div>
+                               <div className="font-bold text-[#004632] text-sm md:text-base">{review.user}</div>
+                               <div className="text-[10px] uppercase tracking-wider text-[#004632]/60">Verified Sipper</div>
+                            </div>
+                         </div>
+                         <div className="bg-[#BDD0A0] text-[#004632] px-3 py-1 rounded-full text-xs font-bold border border-[#004632]">
+                            {review.tag}
+                         </div>
+                      </div>
+                      
+                      {/* Review Text */}
+                      <p className="font-heading text-2xl md:text-3xl text-[#004632] leading-tight mb-6">
                         "{review.text}"
-                     </p>
-                     
-                     {/* Footer */}
-                     <div className="flex justify-between items-center">
-                        <div className="flex text-[#004632] gap-1">
-                           {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
-                        </div>
-                        <div className="group flex items-center gap-2 cursor-pointer">
-                           <Heart size={18} className="text-[#004632] group-hover:fill-red-500 group-hover:text-red-500 transition-colors" />
-                           <span className="text-xs font-bold text-[#004632]">Like</span>
-                        </div>
-                     </div>
+                      </p>
+                      
+                      {/* Footer Info */}
+                      <div className="flex justify-between items-center">
+                         <div className="flex text-[#004632] gap-1">
+                            {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
+                         </div>
+                         <div className="group flex items-center gap-2 cursor-pointer">
+                            <Heart size={18} className="text-[#004632] group-hover:fill-red-500 group-hover:text-red-500 transition-colors" />
+                            <span className="text-xs font-bold text-[#004632]">Like</span>
+                         </div>
+                      </div>
 
                   </div>
                ))}

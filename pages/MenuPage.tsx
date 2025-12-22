@@ -10,7 +10,7 @@ import MenuHero from '../components/menu/MenuHero';
 import MenuBento from '../components/menu/MenuBento';
 import MenuDailyFix from '../components/menu/MenuDailyFix';
 import MenuSweetTooth from '../components/menu/MenuSweetTooth';
-import MenuLimited from '../components/menu/MenuLimited';
+
 
 const MenuPage: React.FC = () => {
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ const MenuPage: React.FC = () => {
           
           <MenuSweetTooth />
           
-          <MenuLimited />
+         
 
           {/* Back Button Area */}
           <div className="flex justify-center py-20 bg-[#FEF8DD]">
