@@ -134,20 +134,7 @@ const WorkshopList: React.FC = () => {
                     className="w-full h-full object-cover opacity-90"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#004632] via-transparent to-transparent opacity-60"></div>
-
-                  <div className="absolute top-6 left-6 flex gap-2">
-                    <div className="bg-[#FEF8DD] text-[#004632] px-3 py-1 font-mono text-xs font-bold uppercase border border-[#004632]">
-                      FIG. {item.id}
-                    </div>
-                    <div className="bg-[#004632] text-[#FEF8DD] px-3 py-1 font-mono text-xs uppercase border border-[#FEF8DD]">
-                      {item.category}
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-6 right-6 font-heading text-[#FEF8DD] text-8xl leading-none opacity-20">
-                    {item.id}
-                  </div>
+                  
                 </div>
               ))}
 
